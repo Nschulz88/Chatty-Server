@@ -24,9 +24,7 @@ colors.sort(function(a,b) { return Math.random() > 0.5; } );
 
 // This is a function defined to broadcast all messages to all "online" users
 wss.broadcast = function broadcast(data) {
-    console.log("logging JSON.parse(data)", JSON.parse(data));
-    let checkingWhatTypeOfMessage = JSON.parse(data);
-    // console.log("----------wss.clients.size", wss.clients.size);
+    console.log("logging JSON.parse(data)", typeof JSON.parse(data).content);
 
     wss.clients.forEach(function each(client) {
         // console.log("logging client", client.readyState, WebSocket.OPEN );
